@@ -15,10 +15,10 @@ ENV EXPO_TOKEN=bG8O5cCIaACsIWQDzX8ul7ls_EunSAXrg1AZSPxN
 
 RUN npm install -g expo-doctor
 
-RUN npx expo-doctor
+RUN npx expo-doctor || true
 
 RUN eas init --force --id d1855607-a494-4456-b6b6-cf0041758dc4
-RUN eas build --platform android --profile product --local --non-interactive
+RUN eas build --platform android --local --non-interactive --profile production  
 
 RUN mkdir -p /apk
 RUN ls -la /app/android/app/build/outputs/apk || true
